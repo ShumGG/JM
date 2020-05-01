@@ -1,0 +1,1 @@
+<h1>List of waiting products</h1>
