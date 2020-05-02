@@ -22,7 +22,7 @@ class Login_admin {
 
         }else {
 
-            echo "Error al iniciar sesion" . var_dump($sql) .$user.$pass;
+            echo "Error al iniciar sesion";
         }
     }
 
