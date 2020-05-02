@@ -3,23 +3,26 @@
 class Product {
 
    
-    private static function registerproduct($name, $quantityBox, $quantityPalet, $departure_room, $packing_room) {
+    public static function registerproduct($type, $p_name, $q_box) {
 
-        $name = self::clean($name);
-        $quantityBox = self::clean($quantityBox);
-        $quantityPalet = self::clean($quantityPalet);
-        $departure_room = self::clean($departure_room);
-        $packing_room = self::clean($packing_room);
-
-        Model::registerproduct($name, $quantityBox, $quantityPalet, $departure_room, $packing_room);
+        $type = Clear::Clearvars($type[0]);
+        $p_name = Clear::Clearvars($p_name);
+        $q_box = Clear::Clearvars($q_box);
+        $result = Model::registerproduct($type, $p_name, $q_box);
         
+        if ($result == 1) {
+
+            echo "Se ha registrado el producto";
+            //ControllerView::renderview("new_product");
+
+        }else {
+
+            echo "Error al registrar el producto";
+        }
+
     }   
 
-    public static function clean($var) {
 
-        return htmlentities(addslashes($var));
-
-    }
 }
 
 

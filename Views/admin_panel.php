@@ -5,7 +5,7 @@
         <title>JM</title>
     </head>
     <body>
-        <h1>hola admin</h1>
+        <h1>Welcome admin: {admin} </h1>
         <table>
             <tr>
                 <td>

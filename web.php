@@ -4,8 +4,8 @@ Model::set([
 
     "db"=>"mysql",
     "host"=> "localhost",
-    "db_name"=>"JM",
-    "user"=>"",
+    "db_name"=>"jm",
+    "user"=>"root",
     "pass"=>""
 
 ]);
@@ -25,11 +25,22 @@ Routes::set ("admin_views",function(){
 
 
 Routes::set('login',function() {  
-    Controller::renderview('admin_panel');
+    
+    $user = $_POST["user"];
+    $pass = $_POST ["pass"];
+
+    Login_admin::login($user, $pass);
+    
 });
 
 Routes::set('register_product', function() {
     
+    $type = $_POST["type"];
+    $p_name = $_POST["p_name"];
+    $q_box = $_POST["q_box"];
+    
+    Product::registerproduct($type, $p_name, $q_box);
+
 });
 
 ?>

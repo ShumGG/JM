@@ -8,17 +8,13 @@
         <div id="contenedor">
             <h1>Welcome to sub admin </h1>
             <form action="index.php?url=register_product" method="post">
+                <label>Product type:</label>
+                <select name="type[]"><option value="syrup">Syrup</option><option value="pills">Pills</option><option value="capsules">Capsules</option><option value="cream">Cream</option><option value="other">Other</option></select></p>
                 <label>Product's name:</label>
-                <input type="text" name="name"></p>
+                <input type="text" name="p_name"></p>
                 <label>Quantity per box:</label>
-                <input type="text" name="quantity_box"></p>
-                <label>Quantity per palet (width x height):</label>
-                <input type="text" name="quantity_palet"></p>
-                <label>Departure room:</label>
-                <input type="text" name="departure_room"></p>
-                <label>Packing room:</label>
-                <input type="text" name="packing_room"></p>
-                <input type="submit" value="Register product" name="start_packing">
+                <input type="text" name="q_box"></p>
+                <input type="submit" value="Register product" name="register">
             </form>
         </div>
     </body
