@@ -19,10 +19,16 @@ Routes::set('sub_admin',function() {
     Controller::renderview('sub_admin');
 });
 
-Routes::set ("admin_views",function(){
+Routes::set ("admin_views",function() {
     ControllerView::renderview($_POST["view"]);
 });
 
+Routes::set ("start_packing",function() {
+
+    //ControllerView::renderview($_POST["view"]);
+    Product::getpreviousproduct($_POST["room"]);
+    
+});
 
 Routes::set('login',function() {  
     

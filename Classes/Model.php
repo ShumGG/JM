@@ -12,7 +12,7 @@ class Model {
     }
 
     public static function connect() {
-
+        
         $db = self::$config["db"];
         $host = self::$config["host"];
         $db_name = self::$config["db_name"];
@@ -57,8 +57,24 @@ class Model {
         return $row;
     }
 
+    public static function getpreviousproduct($room) {
+
+        //consulta en donde se elige el id mas alto del producto empacado en esa habitacion, el id mas alto sera el ultimo terminado
+
+        $query = self::connect()->prepare(("SELECT * FROM `finished_products` WHERE `ID` = (SELECT MAX(ID) FROM `finished_products`) AND `room`=:room"));
+        $query->execute(["room"=>$room]);
+        
+        $result = $query->rowCount();
+
+        if ($result !=0 ) {
+            $row = $query->fetch(PDO::FETCH_ASSOC);   
+        }else {
+            $row = "null";
+        }
+        
+        return $row;
+
+    }
 }
-
-
 
 ?>

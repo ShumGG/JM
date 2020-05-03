@@ -18,7 +18,7 @@
                 <td>
                     <form action="index?url=admin_views" method="post">
                         <input type="submit" value="Start packing product"/>
-                        <input type="hidden" value ="start_packing" name="view"/>
+                        <input type="hidden" value ="select_room" name="view"/>
                     </form>
                 </td>
             </tr>

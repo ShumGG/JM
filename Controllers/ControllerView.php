@@ -2,26 +2,27 @@
 
 class ControllerView {
 
-    const path_adminviews = "Views/admin_views/%s.php";
-    const path_admin = "Views/%s.php";
+    const PATH_ADMINVIEWS = "Views/admin_views/%s.php";
     
-    public static function renderview($view) {
+    public static function renderview($view) { //funcion para crear la vista en general sin agregar valores
  
-            $content = file_get_contents(self::getPath(self::path_adminviews, $view));
+            $content = self::getcontent($view);
 
             echo $content;
         
     }
 
-    public static function createview($content) {
+    public static function createview(array $array, $view) { //funcion para crear la vista agregando valores
 
+        $content = self::getcontent($view);
+        $content = strtr($content, $array);
         echo $content;
-
     }
-    
-    private static function getPath (string $path, string $view) {
-        
-        return sprintf($path, $view);
+
+    private static function getcontent($view) { //funcion para obtener la vista mediante el path
+
+        return file_get_contents(sprintf(self::PATH_ADMINVIEWS, $view));
+
     }
 
 }
