@@ -2,50 +2,48 @@
 
 class Product {
 
-   
-    public static function registerproduct($type, $p_name, $q_box) {
-
-        $type = Clear::Clearvars($type[0]);
-        $p_name = Clear::Clearvars($p_name);
-        $q_box = Clear::Clearvars($q_box);
-        $result = Model::registerproduct($type, $p_name, $q_box);
-        
-        if ($result == 1) {
-
-            echo "Se ha registrado el producto";
-            //ControllerView::renderview("new_product");
-
+    public static function registerproduct($data) {
+        $type = $data["type"];
+        $name = Clear::Clearvars($data["name"]);
+        $quantity_box = Clear::Clearvars($data["quantity_box"]);
+        $box_pallet = Clear::Clearvars($data["box_pallet"]);
+        $result = Model::registerproduct($type, $name, $quantity_box, $box_pallet);
+        if ($result) {
+            echo json_encode($result);
+            //header("refresh:2,index?url=login");
         }else {
-
             echo "Error al registrar el producto";
         }
-
-    }   
-
-    public static function getpreviousproduct($room) {
-
-        $room = Clear::Clearvars($room[0]);
-
-        $row = Model::getpreviousproduct($room);
-        
-        self::createarray($row);
-
     }
 
+    public static function getpreviousproduct($data) {
+        $row = Model::getpreviousproduct($data["room"]);
+        echo json_encode($row);
+    }
 
-    private static function createarray($row) {
-        if (is_array($row)) {
-            $data = array(
-                '{room}'=>$row["room"],
-                '{n_pp}'=>$row["name"],
-                '{lot_pp}'=>$row["lot"],
-                '{q_pp}'=>$row["quantity_produced"]
-            );
-            ControllerView::createview($data, "start_packing");
-        }else {
-            $data = array('{room}'=>$row,'{n_pp}'=>$row,'{lot_pp}'=>$row,'{q_pp}'=>$row);
-            ControllerView::createview($data, "start_packing");
+    public static function getpallets ($name, $quantity_to_package) {
+        $result = Model::getquantityproduct($name);
+        $pallets = ($quantity_to_package/$result["quantity_box"])/$result["boxes_pallet"];
+        if ($pallets < 1) {
+            return 1;
         }
+        return round($pallets);
+    }
+    
+    public static function getproducts($data) {
+        $type = Clear::Clearvars($data["type"]);
+        $row = Model::getproducts($type);
+        echo json_encode($row);
+    }
+
+    public static function getcurrentproducts() {
+       $result = Model::getcurrentproducts();
+       return $result;
+    }
+
+    public static function getfinishedproducts() {
+       $result = Model::getfinishedproducts();
+       echo json_encode($result);
     }
 }
 

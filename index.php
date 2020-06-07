@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'web.php';
+require_once 'web.php';
 
     function __autoload($class_name) {
         if (file_exists("Classes/" . $class_name . ".php")) {

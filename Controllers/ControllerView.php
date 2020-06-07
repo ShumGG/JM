@@ -3,13 +3,13 @@
 class ControllerView {
 
     const PATH_ADMINVIEWS = "Views/admin_views/%s.php";
-    
+  
     public static function renderview($view) { //funcion para crear la vista en general sin agregar valores
- 
-            $content = self::getcontent($view);
 
-            echo $content;
-        
+        $view = Clear::ClearVars($view);
+        $content = self::getcontent($view);
+
+        echo $content;
     }
 
     public static function createview(array $array, $view) { //funcion para crear la vista agregando valores
@@ -19,13 +19,20 @@ class ControllerView {
         echo $content;
     }
 
-    private static function getcontent($view) { //funcion para obtener la vista mediante el path
+    public static function setview($view){
 
-        return file_get_contents(sprintf(self::PATH_ADMINVIEWS, $view));
-
+        echo $view;
     }
+    
+    //privates functions
+    
+    public static function getcontent($view) { //funcion para obtener la vista mediante el path
 
+        if (file_exists(sprintf(self::PATH_ADMINVIEWS,$view))) {
+            return file_get_contents(sprintf(self::PATH_ADMINVIEWS, $view));
+        }else {
+            return $error = "error la vista no existe";
+        }
+    }
 }
-
-
 ?>
