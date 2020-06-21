@@ -32,6 +32,8 @@ wrapper = new Vue({
                 this.message = "Select the type of the product";
             }else {
                 if (this.name == "") {
+                    this.showlist = false;
+                    this.registered = false;
                     this.filteredProducts = ""; 
                 }else{
                     this.filteredProducts = this.products.filter(products => { return products.name.match(this.name.toLowerCase())});
@@ -40,7 +42,8 @@ wrapper = new Vue({
                     this.showlist = true;
                 }
                 if (this.filteredProducts == "") {
-                    this.registered = false;
+                    this.message = "Product no registered.";
+                    this.registered = true;
                 }
             }
         },
