@@ -27,7 +27,6 @@ app = new Vue({
                     this.finish = true;
                 }
                 this.showCurrentproducts();
-                console.log(response.data);
             });
         },
         clearroom: function(room) {

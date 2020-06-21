@@ -28,6 +28,7 @@ app = new Vue({
                     this.begin = this.end;
                     this.end = this.end + this.next;
                     this.arrayend = this.listFinishedproducts.length;
+                    this.message = (this.arrayend < 5 ) ? "No more results." : "See more";
                 }
             });
         },
@@ -41,17 +42,21 @@ app = new Vue({
                     || products.name.match(this.product.toLowerCase())
                     || products.lot.match(this.product.toLowerCase())
                     || products.quantity_packed.match(this.product.toLowerCase())
-                    || products.pallet.match(this.product.toLowerCase())
+                    || products.pallets.match(this.product.toLowerCase())
                     || products.start_date.match(this.product.toLowerCase())
                     || products.finish_date.match(this.product.toLowerCase());
                 });
-                this.message = (this.sliceFinishedproducts.length == 0) ? "No match." : "";
+                this.message = (this.listFinishedproducts.length == 0) ? "No match." : "";
             }
         },
-        hola: function() {
+        seemore: function() {
             let nextproducts = this.productsarray.slice(this.begin, this.end);
             this.arrayend = nextproducts.length;
-            this.message = (this.arrayend < 5 ) ? "No more results." : "See more";
+            if (this.arrayend < 5 ) {
+                alert("No more results.")}
+            else{
+                this.message="See more";
+            };
             for (i = 0 ; i < nextproducts.length ; i++) {
                 this.sliceFinishedproducts.push(nextproducts[i]);
             }

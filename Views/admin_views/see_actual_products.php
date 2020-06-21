@@ -37,7 +37,7 @@
                                         <td>Quantity of pallets: {{i.pallets}}</td>
                                     </tr>
                                     <tr> 
-                                        <td>Progress: {{i.progress}}</td>
+                                        <td>Progress: {{i.progress}}%</td>
                                     </tr>
                                     <tr> 
                                         <td>Start date: {{i.start_date}}</td>

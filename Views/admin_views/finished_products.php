@@ -55,7 +55,7 @@
                             <td>{{i.finish_date}}</td>
                         </tr>
                         <tr>
-                            <td colspan="7"><a href="#" @click = "hola">{{message}}</a></td>
+                            <td colspan="7"><a href="#" @click = "seemore">{{message}}</a></td>
                         </tr>
                     </table>
                 </div>

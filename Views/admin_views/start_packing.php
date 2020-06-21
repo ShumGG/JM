@@ -36,7 +36,7 @@
                         <label v-for="row in list" >Previous product's name: {{row.name}}</label>
                         <label v-for="row in list" >Previous product's lot: {{row.lot}}</label>
                         <label v-for="row in list" >Previous product's quantity packed: {{row.quantity_packed}}</label>
-                        <label v-for="row in list" >Previous product's quantity of pallets: {{row.pallet}}</label>
+                        <label v-for="row in list" >Previous product's quantity of pallets: {{row.pallets}}</label>
                     </div>
                 </div>
 

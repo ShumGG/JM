@@ -50,7 +50,7 @@ class Model {
 
     public static function setroom($room,$name, $lot, $quantity_to_package, $pallets, $finished_pallets, $progress) {
         $query = self::connect()->prepare("INSERT INTO `current_products` (room, name, lot, quantity_to_package, pallets, finished_pallets, progress, start_date) VALUES (?,?,?,?,?,?,?,NOW())");
-        return $query->execute([$room,$name,$lot,$quantity_to_package,$pallets,$finished_pallets,$progress."%"]);
+        return $query->execute([$room,$name,$lot,$quantity_to_package,$pallets,$finished_pallets,$progress]);
     }
 
     public static function getquantityproduct($name) {
@@ -66,7 +66,7 @@ class Model {
     }
 
     public static function addpallet($room) {
-        $query = self::connect()->prepare("UPDATE `current_products` SET finished_pallets = finished_pallets + 1, progress = ROUND((finished_pallets*100)/pallets) WHERE `room`=:room AND 
+        $query = self::connect()->prepare("UPDATE `current_products` SET finished_pallets = finished_pallets + 1 , progress = ROUND((finished_pallets*100)/pallets) WHERE `room`=:room AND 
         current_products.finished_pallets < current_products.pallets");
         $result = $query->execute(["room"=>$room]);
         return $result = $query->rowCount();
@@ -79,6 +79,7 @@ class Model {
     }
 
     public static function getpreviousproduct($room) {
+        
         //IT SELECTS THE HIGHER ID, BECAUSE THE HIGHER ID OF THAT TYPE OF PRODUCT ITS THE LATEST FINISHED
         $query = self::connect()->prepare(("SELECT * FROM  `finished_products` WHERE `id`= (SELECT MAX(id) FROM `finished_products` WHERE `room`=:room) AND `room`=:room"));
         $query->execute(["room"=>$room]);
