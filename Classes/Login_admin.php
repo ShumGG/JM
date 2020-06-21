@@ -2,40 +2,52 @@
 
 class Login_admin {
 
-    public static function login () {
-        
-        session_start();
-        if (isset($_SESSION["user"])) {
-            $data = array (
-                '{admin}'=>$_SESSION["user"]
-            );
-            ControllerView::createview($data, "admin_panel");
+    public static function login ($data) {
+        $user = Clear::Clearvars($data["user"]);
+        $pass = Clear::Clearvars($data["pass"]);
+        $query = Model::login($user, $pass);
+        if ($query != 0) {
+            self::start_session($query);
         }else {
-            $user = Clear::Clearvars($_POST["user"]);
-            $pass = Clear::Clearvars($_POST["pass"]);
-            $sql = Model::login($user, $pass);
-            if ($sql !=0) {
-                $data = array (
-                    '{admin}'=>$sql["user"]
-                );
-                self::start_session($user);
-                ControllerView::createview($data, "admin_panel");
-            }else {
-                "Error al iniciar sesion";
-            }
+            echo json_encode("0");
+        }
+    }
+    
+    public static function start_session($query) {
+        setcookie("user",$query["user"],time()+3600*24*7); //7 days
+        session_start();
+        $_SESSION["user"] = $query["user"];
+    }
+
+    public static function get_user() {
+        session_start();
+        echo json_encode($_COOKIE["user"]);
+    }
+    
+    public static function verify_session($url) {
+        if (!isset($_COOKIE["user"])) {
+            header("Location:index.php");
+        }else {
+            ControllerView::renderview($url);
         }
     }
 
-    public static function start_session($user) {
-        $_SESSION["user"] = $user;
+    public static function verify_session_index() {
+        if (isset($_COOKIE["user"])) {
+            ControllerView::renderview("admin_panel");
+        }else {
+            Controller::renderview("index");
+        }
     }
 
     public static function logout() {
         session_start();
         $_SESSION = [];
         session_destroy();
+        setcookie("user","",time()-1);
         header("Location:index.php");
     }
+
 }
 
 ?>

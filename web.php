@@ -1,13 +1,11 @@
 <?php
 
 Model::set([
-
     "db"=>"mysql",
     "host"=> "localhost",
     "db_name"=>"jm",
     "user"=>"root",
     "pass"=>""
-
 ]);
 
 /*
@@ -18,27 +16,27 @@ ROUTES TO RENDER VIEWS
 */
 
 Routes::set("index",function() {  
-    Controller::renderview('index');
+    Login_admin::verify_session_index();
+});
+
+Routes::set("admin_panel",function() {  
+    Login_admin::verify_session("admin_panel");
 });
 
 Routes::set ("new_product",function() {
-    ControllerView::renderview("new_product");
+    Login_admin::verify_session("new_product");
 });
 
 Routes::set ("package_new_product",function() {
-    ControllerView::renderview("start_packing");
+    Login_admin::verify_session("start_packing");
 });
 
 Routes::set ("see_actual_products",function() {
-    ControllerView::renderview("see_actual_products");
+    Login_admin::verify_session("see_actual_products");
 });
 
 Routes::set ("finished_products",function() {
-    ControllerView::renderview($_GET["url"]);
-});
-
-Routes::set ("waiting_products",function() {
-    ControllerView::renderview("waiting_products");
+    Login_admin::verify_session("finished_products");
 });
 
 /*
@@ -81,14 +79,20 @@ Routes::set("finish_package",function() {
 });
 
 Routes::set("get_finished_products",function(){
-    Product::getfinishedproducts("");
+   Product::getfinishedproducts();
 });
 
 Routes::set("login",function() { 
-    
-    Login_admin::login();
-    
-    //$data = json_decode(file_get_contents('php://input'),true);
+    $data = json_decode(file_get_contents('php://input'),true); 
+    if ($data == null) {
+        header("Location:index.php");   
+    }else {
+        Login_admin::login($data);
+    }}
+);
+
+Routes::set("get_user",function() { 
+    Login_admin::get_user();
 });
 
 Routes::set("logout",function() { 

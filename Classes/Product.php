@@ -8,12 +8,7 @@ class Product {
         $quantity_box = Clear::Clearvars($data["quantity_box"]);
         $box_pallet = Clear::Clearvars($data["box_pallet"]);
         $result = Model::registerproduct($type, $name, $quantity_box, $box_pallet);
-        if ($result) {
-            echo json_encode($result);
-            //header("refresh:2,index?url=login");
-        }else {
-            echo "Error al registrar el producto";
-        }
+        echo json_encode($result);
     }
 
     public static function getpreviousproduct($data) {
@@ -23,6 +18,7 @@ class Product {
 
     public static function getpallets ($name, $quantity_to_package) {
         $result = Model::getquantityproduct($name);
+        $quantity_to_package = str_replace(",","",$quantity_to_package);
         $pallets = ($quantity_to_package/$result["quantity_box"])/$result["boxes_pallet"];
         if ($pallets < 1) {
             return 1;
@@ -43,7 +39,11 @@ class Product {
 
     public static function getfinishedproducts() {
        $result = Model::getfinishedproducts();
-       echo json_encode($result);
+       if (count($result) == 0) {
+           echo json_encode(0);
+       }else {
+           echo json_encode($result);
+       }
     }
 }
 

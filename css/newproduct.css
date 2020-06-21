@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-image: url("../img/JM.png");
+}
+
+#register_new_product {
+    width: 400px;
+    background: rgba(0, 149, 144, 0.8);
+    padding: 20px;
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 4px;
+    color: white;
+}
+
+.register_new_product {
+    padding: 5px;
+    margin: auto;
+    border-radius: 4px;
+    color: black;
+}
+
+.register_new_product h1 {
+    margin-bottom: 5px;
+    color:white;
+    font-weight: bold;
+    text-align: center;
+}
+.register_new_product_label {
+    display: inline-block;
+    text-align: right;
+    float: left;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.register_new_product_input {
+    width: 100%;  
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 2px solid #8cdbd7;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.blocks button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color:#69E9E2;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid #2F7B77;
+    border-radius: 4px;
+}
+
+#back_button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+    border: 2px solid #8cdbd7;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#product_ul {
+    margin-top: -10px;
+} 
+
+#product_ul ul{
+    text-align: center;
+    background-color:rgb(255, 255, 255);
+    color: black;
+    list-style: none;
+    font-size: 20px;
+    width: 100%;
+    font-weight: bold;
+    max-height: 63px;
+    overflow-y: scroll;
+    border-radius:2px ;
+}
+
+#checkp {
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 5px;
+    color:rgb(150, 0, 0);
+}
+
+/*                 
+
+
+RESULT 
+
+
+
+*/
+
+
+#register_new_product_result {
+    width: 400px;
+    background: rgba(0, 149, 144, 0.8);
+    padding: 20px;
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 4px;
+    color: white;
+}
+
+
+.register_new_product_result h1 {
+    margin-bottom: 5px;
+    color: white;
+    text-align: center;
+}
+
+.register_new_product_result_label {
+    display: inline-block;
+    text-align: right;
+    float: left;
+    padding: 5px;
+    font-size: 20px;
+    color:black;
+}
+
+.register_new_product_result_input {
+    width: 100%;  
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #8cdbd7;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.blocks_result button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid #8cdbd7;
+    border-radius: 4px;
+}
+
+#registerloading {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom:5px;
+}

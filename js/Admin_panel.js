@@ -1,5 +1,11 @@
 admin_panel = new Vue({
     el: '#admin_panel',
+    data: {
+        user: '',
+    },
+    mounted() {
+        this.get_user();
+    },
     methods:{
         logout:function() {
             location.href = "index.php?url=logout";
@@ -14,7 +20,15 @@ admin_panel = new Vue({
             location.href = "index.php?url=see_actual_products";
         },
         finished_products:function() {
-            location.href = "index.php?url=finished_products"
+            location.href = "index.php?url=finished_products";
+        },
+        waiting_products: function() {
+            location.href = "index.php?url=waiting_products";
+        },
+        get_user:function() {
+            axios.get("index.php?url=get_user").then((response) => {
+                this.user = response.data;
+            });
         }
     }
 })

@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../img/JM.png");
+    background-size: auto;
+}
+
+#finished_products {
+    text-align: center;
+ 
+}
+
+#finished_products_table {
+    margin-top: 150px;
+    height: 400px;
+    display: inline-block;
+    border: 8px groove #72d3c6;
+    border-radius: 4px;
+}
+
+#table_container {
+    display:inline-block;
+    overflow: auto;
+    overflow-y: scroll;
+    height: 384px;
+    
+}
+
+#table_container table {
+    padding: 15px;
+    border-collapse: collapse;
+    background-color: rgba(0, 149, 144, 0.8);
+    width: 100%;
+    font-size: 22px;
+}
+
+#table_container table input{
+    width: 50%;
+    border: 2px solid #8cdbd7;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+
+#table_container table button{
+    max-width: 15%;
+    padding: 5px;
+    font-size: 20px;
+    border: 2px solid #8cdbd7;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#table_container #tittle_table th, #table_container #tittle_table td {
+    border: 1px solid black;
+    word-break: break-all;
+    width: 140px;
+}
+
+#products_table td {
+    width: 50px;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 35px;
+}
+
+#table_container table:first-child {
+    position: sticky;
+    background-color:rgba(0, 149, 144);
+    top: 0;
+    
+}
+
+
+#table_container #products_table th, #table_container #products_table td {
+    border: 1px solid black;
+    word-break: break-word;
+}
+
+#table_container a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+
+#table_container a:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+}

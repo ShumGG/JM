@@ -1,0 +1,85 @@
+* {
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../img/JM.png");
+}
+
+#see_actual_products{
+    text-align: center;
+    margin-top: 180px;
+}
+
+#see_actual_products #back_button {
+    color:black;
+    width: 15%;
+    border: 2px solid #8cdbd7;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+#see_actual_products_container table {
+    display: inline-block;
+    font-size: 30px;
+    color:white;
+    background-color: rgba(0, 149, 144, 0.8);
+    border: 8px groove #72d3c6;
+    border-radius: 4px;
+}
+
+#table_actual_products_div table{
+    margin: 10px;
+    border-radius: 4px;
+    border: 2px solid #72d3c6;
+    background-color: rgba(0, 149, 144, 0.50);
+    color:white;
+    font-size: 20px;
+    
+}
+
+#table_actual_products_div table td{   
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color:black;
+    word-break: normal;
+    padding:5px;
+    
+}
+
+#table_actual_products_div button{
+    color:black;
+    width: 100%;
+    border: 2px solid #8cdbd7;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+#table_actual_products_div button:hover{
+    cursor: pointer;
+    background-color: rgb(219, 219, 219);
+}
+
+#products #back_button1 {
+    color:black;
+    width: 15%;
+    border: 2px solid #8cdbd7;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+#products #back_button1:hover {
+    cursor: pointer;
+    background-color: rgb(219, 219, 219);
+}

@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../img/JM.png");
+}
+
+.admin_panel {
+    width: 400px;
+    background:  rgba(0, 149, 144, 0.8);
+    padding: 30px;
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 4px;
+    color: white;
+}
+
+.admin_panel h1 {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.admin_button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #69E9E2;
+    font-size: 20px;
+    margin-top: 10px;
+    border: 1px solid #2F7B77
+}
+
+.admin_button:hover {
+    cursor: pointer;
+    background-color: #40C0B9;
+    
+}
