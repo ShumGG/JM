@@ -36,6 +36,9 @@
                                     <tr>    
                                         <td>Quantity of pallets: {{i.pallets}}</td>
                                     </tr>
+                                    <tr>    
+                                        <td>{{i.finished_pallets}} of {{i.pallets}}</td>
+                                    </tr>
                                     <tr> 
                                         <td>Progress: {{i.progress}}%</td>
                                     </tr>

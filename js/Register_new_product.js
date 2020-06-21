@@ -83,7 +83,7 @@ wrapper = new Vue({
         },
         registerproduct: function() {
             if(this.checkinputs()) {
-                /*axios.post("index.php?url=register_product", {'type':this.type,'name':this.name,'quantity_box':this.quantity_box,'box_pallet':this.box_pallet}
+                axios.post("index.php?url=register_product", {'type':this.type,'name':this.name,'quantity_box':this.quantity_box,'box_pallet':this.box_pallet}
                 ).then((response)=>{
                     if (response.data) {
                         this.done = true;
@@ -96,8 +96,7 @@ wrapper = new Vue({
                         this.done = true;
                         this.message = "This products is already registered!.";
                     }
-                })*/
-                console.log("perfecto");
+                })
             }
         },
         close:function() {
